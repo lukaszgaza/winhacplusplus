@@ -1,0 +1,15 @@
+CMakeCache.txt
+CMakeFiles/
+Doxyfile
+Makefile
+build/
+cmake_install.cmake
+src/CMakeFiles/
+src/Makefile
+src/cmake_install.cmake
+src/utils/CMakeFiles/
+src/utils/Makefile
+src/utils/cmake_install.cmake
+src/vinhac/CMakeFiles/
+src/vinhac/Makefile
+src/vinhac/cmake_install.cmake
