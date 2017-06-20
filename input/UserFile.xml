@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://www.winhac.com"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.winhac.com UserFile.xsd">
+	<constants>
+		<constant name="pi">3.1415926535897932</constant>
+		<constant name="invGeV2toNb">389379.304 </constant>
+		<constant name="sinThetaW2">0.22254916</constant>
+		<constant name="invAlphaQED">137.03599968</constant>
+		<constant name="FermiConst">1.16637e-5</constant>
+		<constant name="alphaQCD">0.1176</constant>
+		<constant name="HiggsMass">150.0</constant>
+		<constant name="HiggsWidth">1.0</constant>
+		<CKM i="1" j="1">0.97419</CKM>
+		<CKM i="1" j="2">0.22570</CKM>
+		<CKM i="1" j="3">0.00359</CKM>
+		<CKM i="2" j="1">-0.22560</CKM>
+		<CKM i="2" j="2">0.97334</CKM>
+		<CKM i="2" j="3">0.04150</CKM>
+		<CKM i="3" j="1">0.00874</CKM>
+		<CKM i="3" j="2">-0.04070</CKM>
+		<CKM i="3" j="3">0.999133</CKM>
+	</constants>
+	<beams>
+		<beam id="A">
+			<PDGid>2212</PDGid>
+			<energy>7000</energy>
+		</beam>
+		<beam id="B">
+			<PDGid>2212</PDGid>
+			<energy>7000</energy>
+		</beam>
+		<PDFs on="true">
+			<interface>LHAPDF</interface>
+			<name>cteq61</name>
+			<subset>0</subset>
+			<xMin>1e-6</xMin> 
+			<xMax>1.0</xMax>
+			<Q2min>1.0</Q2min>
+		</PDFs>
+	</beams>
+	<hardProcess>
+		<quarks>
+			<name>u</name>
+			<name>ubar</name>
+			<name>d</name>
+			<name>dbar</name>
+			<name>c</name>
+			<name>cbar</name>
+			<name>s</name>
+			<name>sbar</name>
+			<name>b</name>
+			<name>bbar</name>
+			<name>t</name>
+			<name>tbar</name>			
+		</quarks>
+		<bosons>
+			<name>W+</name>
+		</bosons>
+		<leptons>
+			<name>e</name>
+		</leptons>
+		<polarizations>
+			<polarization>unpolarized</polarization>
+		</polarizations>
+		<radiation>
+			<level>Born</level>
+			<softPhotonCutOff>1.0E-3</softPhotonCutOff>
+		</radiation>
+		<others>
+			<modelReferenceFrame>LAB</modelReferenceFrame>
+			<factorizationScale>Invariant mass</factorizationScale>
+			<alphaScheme>Alpha Gmu</alphaScheme>
+			<widthScheme>running</widthScheme>
+		</others>
+	</hardProcess>
+	<external>
+		<pythiaXMLdocDir>/home/sobol/pakiety/pythia8153/xmldoc</pythiaXMLdocDir>
+		<partonShower>true</partonShower>
+		<hadronization>true</hadronization>
+	</external>
+	<weights>
+		<weightedEvents>true</weightedEvents>
+		<maxWeightRejection>2.0</maxWeightRejection>
+		<main>
+			<modelWeight>Born</modelWeight>
+			<polarization>unpolarized</polarization>
+		</main>
+		<crude>
+			<crudeWeight>XsCrudWt</crudeWeight>
+			<crudeWeight>PartonsGeneration</crudeWeight>
+			<crudeWeight>HardProcessWeight</crudeWeight>
+		</crude>
+		<model>
+			<modelWeight>YFS O(alf0)</modelWeight>
+			<modelWeight>beta01_QED</modelWeight>
+			<modelWeight>beta11</modelWeight>
+			<modelWeight>beta01_EW</modelWeight>
+			<modelWeight>beta01_LL</modelWeight>
+			<modelWeight>beta11_LL</modelWeight>
+			<modelWeight>YFS O(alf1)_QED</modelWeight>
+			<modelWeight>YFS O(alf1)_EW</modelWeight>
+			<modelWeight>YFS O(alf1)_LL</modelWeight>
+			<modelWeight>Born</modelWeight>
+			<modelWeight>O(alpha)_QED</modelWeight>
+			<modelWeight>O(alpha)_EW</modelWeight>
+			<modelWeight>Born + virtual_QED + soft</modelWeight>
+			<modelWeight>Born + virtual_EW + soft</modelWeight>
+			<modelWeight>One real hard photon</modelWeight>
+		</model>
+	</weights>
+	<technical>
+		<printOutLevel>Basic</printOutLevel>
+	</technical>
+</settings>

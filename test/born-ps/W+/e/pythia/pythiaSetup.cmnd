@@ -1,0 +1,9 @@
+ProcessLevel:resonanceDecays = off
+PartonLevel:MI = off
+PartonLevel:FSR = off
+PartonLevel:Remnants = off
+PartonLevel:ISR = on
+HadronLevel:all = off
+HadronLevel:Decay = off
+HadronLevel:BoseEinstein = off
+HadronLevel:Hadronize = off

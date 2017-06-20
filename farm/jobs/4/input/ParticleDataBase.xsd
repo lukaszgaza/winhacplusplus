@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="chapter">
+		<xsd:complexType mixed="true">
+			<xsd:choice maxOccurs="unbounded" minOccurs="0">
+				<xsd:element ref="h2"/>
+				<xsd:element ref="aloc"/>
+				<xsd:element ref="h3"/>
+				<xsd:element ref="modepick"/>
+				<xsd:element ref="parm"/>
+				<xsd:element ref="p"/>
+				<xsd:element ref="ei"/>
+				<xsd:element ref="ref"/>
+				<xsd:element ref="code"/>
+				<xsd:element ref="particle"/>
+			</xsd:choice>
+			<xsd:attribute name="name" type="xsd:string" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="h2" type="xsd:string"/>
+	<xsd:element name="aloc">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute name="href" type="xsd:string" use="required"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="h3" type="xsd:string"/>
+	<xsd:element name="modepick">
+		<xsd:complexType mixed="true">
+			<xsd:choice maxOccurs="unbounded" minOccurs="0">
+				<xsd:element ref="code"/>
+				<xsd:element ref="option"/>
+				<xsd:element ref="note"/>
+				<xsd:element ref="ei"/>
+			</xsd:choice>
+			<xsd:attribute name="name" type="xsd:string" use="required"/>
+			<xsd:attribute name="default" type="xsd:string" use="required"/>
+			<xsd:attribute name="min" type="xsd:string" use="required"/>
+			<xsd:attribute name="max" type="xsd:string" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="code" type="xsd:string"/>
+	<xsd:element name="option">
+		<xsd:complexType mixed="true">
+			<xsd:choice maxOccurs="unbounded" minOccurs="0">
+				<xsd:element ref="ei"/>
+			</xsd:choice>
+			<xsd:attribute name="value" type="xsd:string" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ei" type="xsd:string"/>
+	<xsd:element name="note" type="xsd:string"/>
+	<xsd:element name="parm">
+		<xsd:complexType mixed="true">
+			<xsd:choice maxOccurs="unbounded" minOccurs="0">
+				<xsd:element ref="code"/>
+				<xsd:element ref="ei"/>
+			</xsd:choice>
+			<xsd:attribute name="name" type="xsd:string" use="required"/>
+			<xsd:attribute name="default" type="xsd:string" use="required"/>
+			<xsd:attribute name="min" type="xsd:string" use="required"/>
+			<xsd:attribute name="max" type="xsd:string" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="p">
+		<xsd:complexType/>
+	</xsd:element>
+	<xsd:element name="ref" type="xsd:string"/>
+	<xsd:element name="particle">
+		<xsd:complexType>
+			<xsd:choice maxOccurs="unbounded" minOccurs="0">
+				<xsd:element ref="channel"/>
+			</xsd:choice>
+			<xsd:attribute name="id" type="xsd:string" use="required"/>
+			<xsd:attribute name="name" type="xsd:string" use="required"/>
+			<xsd:attribute name="spinType" type="xsd:string" use="required"/>
+			<xsd:attribute name="chargeType" type="xsd:string" use="required"/>
+			<xsd:attribute name="colType" type="xsd:string" use="required"/>
+			<xsd:attribute name="m0" type="xsd:string" use="required"/>
+			<xsd:attribute name="antiName" type="xsd:string"/>
+			<xsd:attribute name="mWidth" type="xsd:string"/>
+			<xsd:attribute name="mMin" type="xsd:string"/>
+			<xsd:attribute name="mMax" type="xsd:string"/>
+			<xsd:attribute name="tau0" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="channel">
+		<xsd:complexType>
+			<xsd:attribute name="onMode" type="xsd:string" use="required"/>
+			<xsd:attribute name="bRatio" type="xsd:string" use="required"/>
+			<xsd:attribute name="products" type="xsd:string" use="required"/>
+			<xsd:attribute name="meMode" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

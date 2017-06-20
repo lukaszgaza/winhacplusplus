@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.winhac.com" xmlns="http://www.winhac.com"
+	 xmlns:wh="http://www.winhac.com"
+	 xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	 
+	 <xs:element name="settings">
+	 	<xs:complexType>
+	 		<xs:sequence>
+	 			<xs:element ref="constants" minOccurs="1" maxOccurs="1"/>
+	 			<xs:element ref="beams"  minOccurs="1" maxOccurs="1"/>
+	 			<xs:element ref="hardProcess"  minOccurs="1" maxOccurs="1"/>
+	 			<xs:element ref="external" minOccurs="1" maxOccurs="1" />
+	 			<xs:element ref="weights"  minOccurs="1" maxOccurs="1"/>
+	 			<xs:element ref="technical"  minOccurs="1" maxOccurs="1"/>
+	 		</xs:sequence>
+	 	</xs:complexType>
+	 </xs:element>
+	 
+	 <!-- constants section - begin -->
+	 <xs:element name="constants">
+	 	<xs:complexType>
+	 		<xs:sequence>
+	 			<xs:element ref="constant" minOccurs="8" maxOccurs="8"/>
+	 			<xs:element ref="CKM" minOccurs="9" maxOccurs="9"/>
+	 		</xs:sequence>
+	 	</xs:complexType>
+	 	<xs:unique name="constantsKey">
+			<xs:selector xpath="wh:constant"/>
+			<xs:field xpath="@name"/>
+		</xs:unique>
+		<xs:unique name="ckmKey">
+			<xs:selector xpath="wh:CKM"/>
+			<xs:field xpath="@i"/>
+			<xs:field xpath="@j"/>
+		</xs:unique>
+	 </xs:element>
+	 <xs:element name="constant">
+	 	<xs:complexType>
+	 		<xs:simpleContent>
+				<xs:extension base="xs:double">
+					<xs:attribute name="name" use="required">
+						  <xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="pi"/>
+								<xs:enumeration value="invGeV2toNb"/>
+								<xs:enumeration value="sinThetaW2"/>
+								<xs:enumeration value="invAlphaQED"/>
+								<xs:enumeration value="FermiConst"/>
+								<xs:enumeration value="alphaQCD"/>
+								<xs:enumeration value="HiggsMass"/>
+								<xs:enumeration value="HiggsWidth"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+	 	</xs:complexType>
+	 	
+	 </xs:element>
+	 
+	 <xs:element name="CKM">
+	 	<xs:complexType>
+	 		<xs:simpleContent>
+				<xs:extension base="xs:double">
+					<xs:attribute name="i" use="required">
+						  <xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="1"/>
+       								<xs:maxInclusive value="3"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="j" use="required">
+						  <xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="1"/>
+       								<xs:maxInclusive value="3"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+	 	</xs:complexType>
+	 </xs:element>
+	 
+	 <!-- constants section - end -->
+	 
+	 <!-- beams section - begin -->
+	 <xs:element name="beams">
+	 	<xs:complexType>
+	 		<xs:sequence>
+	 			<xs:element ref="beam" minOccurs="2" maxOccurs="2"/>
+	 			<xs:element ref="PDFs" minOccurs="1" maxOccurs="1"/>
+	 		</xs:sequence>
+	 	</xs:complexType>
+	 	<xs:unique name="beamKey">
+			<xs:selector xpath="wh:beam"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
+	 </xs:element>
+	 <xs:element name="beam">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="PDGid"/>
+				<xs:element ref="energy"/>
+			</xs:sequence>
+			<xs:attribute name="id" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="A"/>
+						<xs:enumeration value="B"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PDFs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="interface" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="LHAPDF"/>
+							<xs:enumeration value="Simple"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="subset" type="xs:integer" minOccurs="1" maxOccurs="1" />
+				<xs:element name="xMin" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:double">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="xMax" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:double">
+							<xs:minInclusive value="0"/>
+							<xs:maxInclusive value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Q2min" type="xs:double" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+			<xs:attribute name="on" use="required" type="xs:boolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PDGid">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:enumeration value="1"/>
+				<xs:enumeration value="-1"/>
+				<xs:enumeration value="2"/>
+				<xs:enumeration value="-2"/>
+				<xs:enumeration value="3"/>
+				<xs:enumeration value="-3"/>
+				<xs:enumeration value="4"/>
+				<xs:enumeration value="-4"/>
+				<xs:enumeration value="5"/>
+				<xs:enumeration value="-5"/>
+				<xs:enumeration value="6"/>
+				<xs:enumeration value="-6"/>
+				<xs:enumeration value="2212"/>
+				<xs:enumeration value="-2212"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="energy">
+		<xs:simpleType>
+			<xs:restriction base="xs:double">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	 
+	 <!-- beams section - end -->
+	 
+	 
+	 <!-- hardProcess section - begin -->
+	 <xs:element name="hardProcess">
+	 	<xs:complexType>
+	 		<xs:sequence>
+	 			<xs:element ref="quarks" minOccurs="1" maxOccurs="1"/>
+	 			<xs:element ref="bosons" minOccurs="1" maxOccurs="1"/>
+	 			<xs:element ref="leptons" minOccurs="1" maxOccurs="1"/>
+	 			<xs:element ref="polarizations" minOccurs="1" maxOccurs="1"/>
+	 			<xs:element ref="radiation" minOccurs="1" maxOccurs="1"/>
+	 			<xs:element ref="others" minOccurs="1" maxOccurs="1"/>
+	 		</xs:sequence>
+	 	</xs:complexType>
+	 </xs:element>
+	 
+	 <xs:element name="quarks">
+	 	<xs:complexType>
+	 		<xs:sequence>
+	 			<xs:element name="name" minOccurs="2" maxOccurs="12">
+	 				<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="u"/>
+							<xs:enumeration value="ubar"/>
+							<xs:enumeration value="d"/>
+							<xs:enumeration value="dbar"/>
+							<xs:enumeration value="c"/>
+							<xs:enumeration value="cbar"/>
+							<xs:enumeration value="s"/>
+							<xs:enumeration value="sbar"/>
+							<xs:enumeration value="b"/>
+							<xs:enumeration value="bbar"/>
+							<xs:enumeration value="t"/>
+							<xs:enumeration value="tbar"/>
+						</xs:restriction>
+					</xs:simpleType>
+	 			</xs:element>
+	 		</xs:sequence>
+	 	</xs:complexType>
+	 	<xs:unique name="quarksKey">
+			<xs:selector xpath="wh:name"/>
+			<xs:field xpath="."/>
+		</xs:unique>
+	 </xs:element>
+	 
+	 <xs:element name="bosons">
+	 	 <xs:complexType>
+	 		<xs:sequence>
+	 			<xs:element name="name" minOccurs="1" maxOccurs="2">
+	 				<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="W+"/>
+							<xs:enumeration value="W-"/>
+						</xs:restriction>
+					</xs:simpleType>
+	 			</xs:element>
+	 		</xs:sequence>
+	 	</xs:complexType>
+	 	<xs:unique name="bosonsKey">
+			<xs:selector xpath="wh:name"/>
+			<xs:field xpath="."/>
+		</xs:unique>
+	 </xs:element>
+	 
+	 <xs:element name="leptons">
+	 	 <xs:complexType>
+	 		<xs:sequence>
+	 			<xs:element name="name" minOccurs="1" maxOccurs="3">
+	 				<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="e"/>
+							<xs:enumeration value="mu"/>
+							<xs:enumeration value="tau"/>
+						</xs:restriction>
+					</xs:simpleType>
+	 			</xs:element>
+	 		</xs:sequence>
+	 	</xs:complexType>
+	 	<xs:unique name="leptonsKey">
+			<xs:selector xpath="wh:name"/>
+			<xs:field xpath="."/>
+		</xs:unique>
+	 </xs:element>
+	 
+	 <xs:element name="polarizations">
+	 	 <xs:complexType>
+	 		<xs:sequence>
+	 			<xs:element ref="polarization" minOccurs="1" maxOccurs="7"/>
+	 		</xs:sequence>
+	 	</xs:complexType>
+	 	<xs:unique name="polarizationsKey">
+			<xs:selector xpath="wh:polarization"/>
+			<xs:field xpath="."/>
+		</xs:unique>
+	 </xs:element>
+	 
+	 <xs:element name="polarization">
+	 	<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="unpolarized"/>
+				<xs:enumeration value="longitudinally"/>
+				<xs:enumeration value="transversely"/>
+				<xs:enumeration value="left"/>
+				<xs:enumeration value="right"/>
+				<xs:enumeration value="int_left_right"/>
+				<xs:enumeration value="int_long_tran"/>
+			</xs:restriction>
+		</xs:simpleType>
+	 </xs:element>
+	 
+	 <xs:element name="radiation">
+	 	<xs:complexType>
+	 		<xs:sequence>
+	 			<xs:element name="level" minOccurs="1" maxOccurs="1">
+	 				<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Born"/>
+							<xs:enumeration value="Above + QED radiative correction in W-decay"/>
+							<xs:enumeration value="Above + O(alpha) EW corrections in W-decay"/>
+						</xs:restriction>
+					</xs:simpleType>
+	 			</xs:element>
+	 			<xs:element name="softPhotonCutOff" minOccurs="1" maxOccurs="1" type="xs:double"/>
+	 		</xs:sequence>
+	 	</xs:complexType>
+	 </xs:element>
+	 
+	 <xs:element name="others">
+	 	<xs:complexType>
+	 		<xs:sequence>
+	 			<xs:element name="modelReferenceFrame" minOccurs="1" maxOccurs="1">
+	 				<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="LAB"/>
+							<xs:enumeration value="Boson Rest Frame"/>
+							<xs:enumeration value="W and 2nd beam nucleon CMS with +z axis along W"/>
+							<xs:enumeration value="W rest frame with +z axis along W direction in LAB and +x axis oriented according to beam with smaller polar angle in this frame"/>
+							<xs:enumeration value="Fixed PT"/>
+							<xs:enumeration value="Random PT"/>
+						</xs:restriction>
+					</xs:simpleType>
+	 			</xs:element>
+	 			<xs:element name="factorizationScale" minOccurs="1" maxOccurs="1">
+	 				<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Invariant mass"/>
+							<xs:enumeration value="Fixed W mass"/>
+						</xs:restriction>
+					</xs:simpleType>
+	 			</xs:element>
+	 			<xs:element name="alphaScheme" minOccurs="1" maxOccurs="1">
+	 				<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Alpha QED"/>
+							<xs:enumeration value="Alpha Gmu"/>
+						</xs:restriction>
+					</xs:simpleType>
+	 			</xs:element>
+	 			<xs:element name="widthScheme" minOccurs="1" maxOccurs="1">
+	 				<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="fixed"/>
+							<xs:enumeration value="running"/>
+						</xs:restriction>
+					</xs:simpleType>
+	 			</xs:element>
+	 		</xs:sequence>
+	 	</xs:complexType>
+	 </xs:element>
+	 
+	 <!-- hardProcess section - end -->
+	 
+	 <!-- external section - begin -->
+	 <xs:element name="external">
+	 	<xs:complexType>
+	 		<xs:sequence>
+	 			<xs:element name="pythiaXMLdocDir" type="xs:string" minOccurs="1" maxOccurs="1" />
+	 			<xs:element name="partonShower" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+	 			<xs:element name="hadronization" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+	 		</xs:sequence>
+	 	</xs:complexType>
+	 </xs:element>
+	 
+	 <!-- external section - end -->
+	 
+	 
+	 <!-- weights section - begin -->
+	 <xs:element name="weights">
+	 	<xs:complexType>
+	 		<xs:sequence>
+	 			<xs:element name="weightedEvents" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+	 			<xs:element name="maxWeightRejection" type="xs:double" minOccurs="1" maxOccurs="1" />
+	 			<xs:element ref="main" minOccurs="1" maxOccurs="1" />
+	 			<xs:element ref="crude" minOccurs="1" maxOccurs="1" />
+	 			<xs:element ref="model" minOccurs="1" maxOccurs="1" />
+	 		</xs:sequence>
+	 	</xs:complexType>
+	 </xs:element>
+	 
+	 <xs:element name="main">
+	 	<xs:complexType>
+	 		<xs:sequence>
+	 			<xs:element ref="modelWeight" minOccurs="1" maxOccurs="1" />
+	 			<xs:element ref="polarization" minOccurs="1" maxOccurs="1" />
+	 		</xs:sequence>
+	 	</xs:complexType>
+	 </xs:element>
+	 
+	 <xs:element name="crude">
+	 	<xs:complexType>
+	 		<xs:sequence>
+	 			<xs:element ref="crudeWeight" minOccurs="0" maxOccurs="unbounded" />
+	 		</xs:sequence>
+	 	</xs:complexType>
+	 	<xs:unique name="crudeKey">
+			<xs:selector xpath="wh:crudeWeight"/>
+			<xs:field xpath="."/>
+		</xs:unique>
+	 </xs:element>
+	 
+	 <xs:element name="model">
+	 	<xs:complexType>
+	 		<xs:sequence>
+	 			<xs:element ref="modelWeight" minOccurs="0" maxOccurs="unbounded" />
+	 		</xs:sequence>
+	 	</xs:complexType>
+	 	<xs:unique name="modelKey">
+			<xs:selector xpath="wh:modelWeight"/>
+			<xs:field xpath="."/>
+		</xs:unique>
+	 </xs:element>
+	 
+	 <xs:element name="modelWeight">
+	 	<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="YFS O(alf0)"/>
+				<xs:enumeration value="beta01_QED"/>
+				<xs:enumeration value="beta11"/>
+				<xs:enumeration value="beta01_EW"/>
+				<xs:enumeration value="beta01_LL"/>
+				<xs:enumeration value="beta11_LL"/>
+				<xs:enumeration value="YFS O(alf1)_QED"/>
+				<xs:enumeration value="YFS O(alf1)_EW"/>
+				<xs:enumeration value="YFS O(alf1)_LL"/>
+				<xs:enumeration value="Born"/>
+				<xs:enumeration value="O(alpha)_QED"/>
+				<xs:enumeration value="O(alpha)_EW"/>
+				<xs:enumeration value="Born + virtual_QED + soft"/>
+				<xs:enumeration value="Born + virtual_EW + soft"/>
+				<xs:enumeration value="One real hard photon"/>
+			</xs:restriction>
+		</xs:simpleType>
+	 </xs:element>
+	 
+	 <xs:element name="crudeWeight">
+	 	<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="XsCrudWt"/>
+				<xs:enumeration value="PartonsGeneration"/>
+				<xs:enumeration value="HardProcessWeight"/>
+			</xs:restriction>
+		</xs:simpleType>
+	 </xs:element>
+	 
+	 <!-- weights section - end -->
+	 
+	 <!-- technical section - begin-->
+	 <xs:element name="technical">
+	 	<xs:complexType>
+	 		<xs:sequence>
+	 			<xs:element ref="printOutLevel" minOccurs="1" maxOccurs="1" />
+	 		</xs:sequence>
+	 	</xs:complexType>
+	 </xs:element>
+	 
+	 <xs:element name="printOutLevel">
+	 	<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="None"/>
+				<xs:enumeration value="Basic"/>
+				<xs:enumeration value="Detailed"/>
+			</xs:restriction>
+		</xs:simpleType>
+	 </xs:element>
+	 
+	 <!-- technical section - begin-->
+
+</xs:schema>
