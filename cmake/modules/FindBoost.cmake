@@ -7,7 +7,7 @@ MESSAGE(STATUS "Looking for Boost...")
 # try to find Boost in user defined path
 FIND_LIBRARY(BOOST_LIB
 	NAMES
-		boost_thread
+		boost_thread-mt
 	PATHS
 		${BOOST_PREFIX}/stage/lib
 	NO_DEFAULT_PATH
@@ -18,9 +18,10 @@ FIND_LIBRARY(BOOST_LIB
 IF(${BOOST_LIB} MATCHES "BOOST_LIB-NOTFOUND")
 	FIND_LIBRARY(BOOST_LIB
 		NAMES
-			boost_thread
+			boost_thread-mt
 		PATHS
 			/usr/lib
+			/usr/lib64
 			/usr/local/lib
 	)
 	FIND_PATH(BOOST_INCLUDE
