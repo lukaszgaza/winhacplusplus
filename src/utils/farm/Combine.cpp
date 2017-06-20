@@ -28,7 +28,7 @@ int main(int argc,char **argv){
 	vector<double> crudes;
 	vector<double> crudesErrors;
 
-	for(unsigned i = 2; i < argc ; ++i){
+	for(int i = 2; i < argc ; ++i){
 		string jobpath(argv[i]);
 		fstream xsecfile((jobpath+"/XSections.dat").c_str(),fstream::in);
 		fstream numberfile((jobpath+"/numberOfEvents.dat").c_str(),fstream::in);

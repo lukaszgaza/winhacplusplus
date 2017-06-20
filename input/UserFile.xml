@@ -1,115 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- New document created with EditiX at Sat Feb 21 14:58:11 CET 2009 -->
-
-<inputData
-	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:noNamespaceSchemaLocation="InputData.xsd">
-<!-- ================== Constans =================-->	 
-		<constants>
-		<constMath>
-			<pi>3.1415926535897932</pi>
-			<invGeV2toNb>389379.304 </invGeV2toNb>
-		</constMath>
-		<constPhys> 
-			<sinThetaW2>-0.2222</sinThetaW2> 
-			<invAlphaQED>137.03599968</invAlphaQED>
-			<FermiConst>1.16637e-5</FermiConst>
-			<alphaQCD>0.1176</alphaQCD>
-			<matrixCMK>
-				<VCKM_11>0.97419 </VCKM_11>
-				<VCKM_12>0.22570 </VCKM_12>
-				<VCKM_13>0.00359 </VCKM_13>
-				<VCKM_21>-0.22560 </VCKM_21>
-				<VCKM_22>0.97334 </VCKM_22>
-				<VCKM_23>0.04150 </VCKM_23>
-				<VCKM_31>0.00874 </VCKM_31>
-				<VCKM_32>-0.04070</VCKM_32>
-				<VCKM_33>0.999133</VCKM_33>
-			</matrixCMK>
-		</constPhys>
+<settings xmlns="http://www.winhac.com"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.winhac.com UserFile.xsd">
+	<constants>
+		<constant name="pi">3.1415926535897932</constant>
+		<constant name="invGeV2toNb">389379.304 </constant>
+		<constant name="sinThetaW2">0.22254916</constant>
+		<constant name="invAlphaQED">137.03599968</constant>
+		<constant name="FermiConst">1.16637e-5</constant>
+		<constant name="alphaQCD">0.1176</constant>
+		<constant name="HiggsMass">150.0</constant>
+		<constant name="HiggsWidth">1.0</constant>
+		<CKM i="1" j="1">0.97419</CKM>
+		<CKM i="1" j="2">0.22570</CKM>
+		<CKM i="1" j="3">0.00359</CKM>
+		<CKM i="2" j="1">-0.22560</CKM>
+		<CKM i="2" j="2">0.97334</CKM>
+		<CKM i="2" j="3">0.04150</CKM>
+		<CKM i="3" j="1">0.00874</CKM>
+		<CKM i="3" j="2">-0.04070</CKM>
+		<CKM i="3" j="3">0.999133</CKM>
 	</constants>
-<!-- =============== Generator Settings===============-->
-	<generatorSettings nbEvents="10000">
-	
-		<randomGenrator name="ranlux"/>
-		<printOut prinOutType="1"></printOut>
-		<maxWeightRej>2.0</maxWeightRej>
-	</generatorSettings>	
-<!-- ================= Event Settings================-->	
-	<eventSettings>
-<!-- ================= Beam Settings================-->		
-		<beamStettings>
-			<Q2minCut>1.69</Q2minCut>
-			<beamA energy="7000"> 
-				<beamParticle>
-					<idPDG>2212</idPDG>
-					<PDF name="cteq61" PDFinterface="LHAPDF">
-						<PDFsubset>0</PDFsubset>		
-						<xMin>1e-6</xMin> 
-						<xMax>1.0</xMax>
-					</PDF>
-					<heavyIon switchOn="off">
-						<atomicNb></atomicNb>
-		 				<chargeNb></chargeNb>
-		 				<energy></energy>
-		 				<nuclearCorre>0</nuclearCorre>
-					</heavyIon>
-				</beamParticle>
-			</beamA>
-			<beamB energy="7000">
-				<beamParticle>
-					<idPDG>2212</idPDG>
-					<PDF PDFinterface="LHAPDF" name="cteq61">
-						<PDFsubset>0</PDFsubset>		
-						<xMin>1e-6</xMin> 
-						<xMax>1.0</xMax>
-					</PDF>
-					<heavyIon switchOn="off">
-						<atomicNb></atomicNb>
-		 				<chargeNb></chargeNb>
-		 				<energy></energy>
-		 				<nuclearCorre>0</nuclearCorre>
-		 			</heavyIon>
-				</beamParticle>
-			</beamB>
-		</beamStettings>
-<!-- ================ Hard Process=================-->
-		<hardProcess>
-			<bosons>
-				<intermidiateBosons>
-					<particleName>W+</particleName>
-					<particleName>W-</particleName>
-				</intermidiateBosons>
-				<polarization>Unpolarized</polarization>
-			</bosons>
-			<initialParticles>
-				<particleName>u</particleName>
-				<particleName>ubar</particleName>
-				<particleName>d</particleName>
-				<particleName>dbar</particleName>
-				<particleName>c</particleName>
-				<particleName>cbar</particleName>
-				<particleName>s</particleName>
-				<particleName>sbar</particleName>
-				<particleName>b</particleName>
-				<particleName>bbar</particleName>
-				<particleName>t</particleName>
-				<particleName>tbar</particleName>			
-			</initialParticles>
-			<finialParticles>
-				<particleName>e</particleName>
-				<particleName>mu</particleName>
-			</finialParticles>
-			<widthSchem  witdthType="fix"></widthSchem>
-			<ips ipsScheme="alpha">1</ips>
-			<factorizationScale scaleType="muF^2=Q^2">0</factorizationScale>
-		</hardProcess>
-		<radiativeCorrections>
-			<ewCorrections switchOn="on">
-				<correctionType>2</correctionType>
-			</ewCorrections>
-		</radiativeCorrections>
-	</eventSettings>
-</inputData>
-
+	<beams>
+		<beam id="A">
+			<PDGid>2212</PDGid>
+			<energy>7000</energy>
+		</beam>
+		<beam id="B">
+			<PDGid>2212</PDGid>
+			<energy>7000</energy>
+		</beam>
+		<PDFs on="true">
+			<interface>LHAPDF</interface>
+			<name>cteq61</name>
+			<subset>0</subset>
+			<xMin>1e-6</xMin> 
+			<xMax>1.0</xMax>
+			<Q2min>1.0</Q2min>
+		</PDFs>
+	</beams>
+	<hardProcess>
+		<quarks>
+			<name>u</name>
+			<name>ubar</name>
+			<name>d</name>
+			<name>dbar</name>
+			<name>c</name>
+			<name>cbar</name>
+			<name>s</name>
+			<name>sbar</name>
+			<name>b</name>
+			<name>bbar</name>
+			<name>t</name>
+			<name>tbar</name>			
+		</quarks>
+		<bosons>
+			<name>W+</name>
+		</bosons>
+		<leptons>
+			<name>e</name>
+		</leptons>
+		<polarizations>
+			<polarization>unpolarized</polarization>
+		</polarizations>
+		<radiation>
+			<level>Born</level>
+			<softPhotonCutOff>1.0E-3</softPhotonCutOff>
+		</radiation>
+		<others>
+			<modelReferenceFrame>LAB</modelReferenceFrame>
+			<factorizationScale>Invariant mass</factorizationScale>
+			<alphaScheme>Alpha Gmu</alphaScheme>
+			<widthScheme>running</widthScheme>
+		</others>
+	</hardProcess>
+	<external>
+		<pythiaXMLdocDir>/home/lgaza/Downloads/pythia8150/xmldoc</pythiaXMLdocDir>
+		<partonShower>true</partonShower>
+		<hadronization>true</hadronization>
+	</external>
+	<weights>
+		<weightedEvents>true</weightedEvents>
+		<maxWeightRejection>2.0</maxWeightRejection>
+		<main>
+			<modelWeight>Born</modelWeight>
+			<polarization>unpolarized</polarization>
+		</main>
+		<crude>
+			<crudeWeight>XsCrudWt</crudeWeight>
+			<crudeWeight>PartonsGeneration</crudeWeight>
+			<crudeWeight>HardProcessWeight</crudeWeight>
+		</crude>
+		<model>
+			<modelWeight>YFS O(alf0)</modelWeight>
+			<modelWeight>beta01_QED</modelWeight>
+			<modelWeight>beta11</modelWeight>
+			<modelWeight>beta01_EW</modelWeight>
+			<modelWeight>beta01_LL</modelWeight>
+			<modelWeight>beta11_LL</modelWeight>
+			<modelWeight>YFS O(alf1)_QED</modelWeight>
+			<modelWeight>YFS O(alf1)_EW</modelWeight>
+			<modelWeight>YFS O(alf1)_LL</modelWeight>
+			<modelWeight>Born</modelWeight>
+			<modelWeight>O(alpha)_QED</modelWeight>
+			<modelWeight>O(alpha)_EW</modelWeight>
+			<modelWeight>Born + virtual_QED + soft</modelWeight>
+			<modelWeight>Born + virtual_EW + soft</modelWeight>
+			<modelWeight>One real hard photon</modelWeight>
+		</model>
+	</weights>
+	<technical>
+		<printOutLevel>Basic</printOutLevel>
+	</technical>
+</settings>

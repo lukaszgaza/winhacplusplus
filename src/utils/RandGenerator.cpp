@@ -21,6 +21,7 @@ bool VINHAC::RandGenerator::SetSeed(double A,double B){
 		return false;
 	}
 	a=A,b=B;
+	return true;
 }
 
 double VINHAC::RandGenerator::Next(){

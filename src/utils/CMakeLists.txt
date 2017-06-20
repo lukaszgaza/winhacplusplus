@@ -1,5 +1,8 @@
 
 aux_source_directory(. UTILS_SOURCES)
+IF(PYTHIA8_FOUND)
+	aux_source_directory(./pythia UTILS_SOURCES)
+ENDIF(PYTHIA8_FOUND)
 aux_source_directory(./FOAM FOAM_SOURCES)
 aux_source_directory(./CLHEP/Random/src CLHEP_SOURCES)
 aux_source_directory(./CLHEP/Vector/src CLHEP_SOURCES)

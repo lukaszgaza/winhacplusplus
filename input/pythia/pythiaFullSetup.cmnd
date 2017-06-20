@@ -1,0 +1,27 @@
+Beams:idA = 2212
+Beams:idB = 2212
+Beams:frameType = 2
+Beams:eA = 7000
+Beams:eB = 7000
+PDF:useLHAPDF = on
+PDF:LHAPDFset = cteq61.LHgrid
+PDF:useHardLHAPDF = on
+PDF:hardLHAPDFset = cteq61.LHgrid
+
+WeakSingleBoson:ffbar2W = on
+
+
+
+ProcessLevel:resonanceDecays = on
+PartonLevel:MI = off
+PartonLevel:FSR = on
+PartonLevel:Remnants = off
+HadronLevel:all = off
+HadronLevel:Decay = off
+HadronLevel:BoseEinstein = off
+HadronLevel:Hadronize = off
+PartonLevel:ISR = off
+
+24:onMode = off
+24:onIfAny = 11 12 
+24:mayDecay = on

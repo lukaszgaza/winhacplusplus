@@ -1,0 +1,13 @@
+
+PartonLevel:MI = off
+PartonLevel:FSR = off
+PartonLevel:Remnants = off
+HadronLevel:all = off
+HadronLevel:Decay = off
+HadronLevel:BoseEinstein = off
+HadronLevel:Hadronize = off
+PartonLevel:ISR = off
+
+24:onMode = off
+24:onIfAny = 13 14
+24:mayDecay = on

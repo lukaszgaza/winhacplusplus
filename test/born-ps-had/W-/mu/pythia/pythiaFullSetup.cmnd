@@ -1,0 +1,43 @@
+Beams:idA = 2212
+Beams:idB = 2212
+Beams:frameType = 2
+Beams:eA = 7000
+Beams:eB = 7000
+PDF:useLHAPDF = on
+PDF:LHAPDFset = cteq61.LHgrid
+PDF:useHardLHAPDF = on
+PDF:hardLHAPDFset = cteq61.LHgrid
+
+WeakSingleBoson:ffbar2W = on
+
+
+
+ProcessLevel:resonanceDecays = on
+PartonLevel:MI = off
+PartonLevel:FSR = off
+PartonLevel:Remnants = off
+HadronLevel:all = off
+HadronLevel:Decay = off
+HadronLevel:BoseEinstein = off
+HadronLevel:Hadronize = off
+PartonLevel:ISR = off
+
+24:onMode = off
+24:onNegIfAny = 13
+#24:onPosIfAny = 11 
+24:mayDecay = on
+
+
+SpaceShower:alphaSvalue = 0.1176
+
+StandardModel:alphaEM0 = 0.007297353
+StandardModel:sin2thetaW = 0.223110081
+StandardModel:Vcb = 0.04150
+StandardModel:Vcd = -0.22560
+StandardModel:Vcs = 0.97334
+StandardModel:Vtb = 0.999133
+StandardModel:Vtd = 0.00874
+StandardModel:Vts = -0.04070
+StandardModel:Vub = 0.00359
+StandardModel:Vud = 0.97419
+StandardModel:Vus = 0.22570

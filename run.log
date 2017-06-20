@@ -1,0 +1,187 @@
+$$$$$$$$$$ SEED = 625426789
+Reading user file: input/UserFile.xml
+====================Initialize Beam A===================
+PDGid => 2212
+energy => 7000
+====================Initialize Beam B===================
+PDGid => 2212
+energy => 7000
+========================LHAPDF==============================
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+F                                                                              F
+F                   ****************************************                   F
+F                   ******     TFOAM::Initialize      ******                   F
+F                   ****************************************                   F
+F                                                    p_FoamX                   F
+F    Version =            2.06   =               Release date:  2003.10.07     F
+F       nDim =          0 =  Dimension of the simplical sub-space              F
+F       kDim =          2 =  Dimension of the hyper-cubical sub-space          F
+F     nCells =       5000 =  Requested number of Cells (half of them active)   F
+F     nSampl =       1000 =  No of MC events in exploration of a cell cell     F
+F       nBin =          8 =  No of bins in histograms, MC exploration of cell  F
+F   EvPerBin =         25 =  Maximum No effective_events/bin, MC exploration   F
+F   OptDrive =          2 =  Type of Driver   =1,2 for Sigma,WtMax             F
+F    OptEdge =          0 =  Decides whether vertices are included in the MC   F
+F    OptPeek =          0 =  Type of the cell Peek =0,1 for maximum, random    F
+F     OptOrd =          0 =  Root cell hyp-cub. or simplex, =0,1               F
+F   OptMCell =          1 =  MegaCell option, slim memory for hyp-cubes        F
+F    OptVert =          1 =  Decides whether to store vertices of simplices    F
+F   OptDebug =          1 =  Additional debug histogram, SetDirectory(1)       F
+F   OptCu1st =          1 =  Numbering of dimensions  starts with h-cubic      F
+F     OptRej =          0 =  MC rejection on/off for OptRej=0,1                F
+F   MaxWtRej =             1.1   =       Maximum wt in rejection for wt=1 evts F
+F                                                                              F
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222|1000
+2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222|2000
+2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222|3000
+2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222|4000
+222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+F                                                                              F
+F                   ***  TFOAM::Initialize FINISHED!!!   ***                   F
+F     nCalls =    1033046 =            Total number of function calls          F
+F     XPrime =   2.5291432e-05   =     Primary total integral                  F
+F     XDiver =   7.9336124e-07   =     Driver  total integral                  F
+F   MCresult =   2.4498071e-05   =     Estimate of the true MC Integral        F
+F                                                                              F
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+
+ *------------------------------------------------------------------------------------* 
+ |                                                                                    | 
+ |  *------------------------------------------------------------------------------*  | 
+ |  |                                                                              |  | 
+ |  |                                                                              |  | 
+ |  |   PPP   Y   Y  TTTTT  H   H  III    A      Welcome to the Lund Monte Carlo!  |  | 
+ |  |   P  P   Y Y     T    H   H   I    A A     This is PYTHIA version 8.150      |  | 
+ |  |   PPP     Y      T    HHHHH   I   AAAAA    Last date of change: 20 Apr 2011  |  | 
+ |  |   P       Y      T    H   H   I   A   A                                      |  | 
+ |  |   P       Y      T    H   H  III  A   A    Now is 20 Jun 2017 at 19:22:53    |  | 
+ |  |                                                                              |  | 
+ |  |   Torbjorn Sjostrand;  Department of Astronomy and Theoretical Physics,      |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      phone: + 46 - 46 - 222 48 16; e-mail: torbjorn@thep.lu.se               |  | 
+ |  |   Stefan Ask;  Department of Physics, University of Cambridge,               |  | 
+ |  |      Cavendish Laboratory, JJ Thomson Ave., Cambridge CB3 0HE, UK;           |  | 
+ |  |      phone: + 41 - 22 - 767 6707; e-mail: Stefan.Ask@cern.ch                 |  | 
+ |  |   Richard Corke;  Department of Astronomy and Theoretical Physics,           |  | 
+ |  |      Lund University, Solvegatan 14A, SE-223 62 Lund, Sweden;                |  | 
+ |  |      phone: + 46 - 46 - 222 31 92; e-mail: richard.corke@thep.lu.se          |  | 
+ |  |   Stephen Mrenna;  Computing Division, Simulations Group,                    |  | 
+ |  |      Fermi National Accelerator Laboratory, MS 234, Batavia, IL 60510, USA;  |  | 
+ |  |      phone: + 1 - 630 - 840 - 2556; e-mail: mrenna@fnal.gov                  |  | 
+ |  |   Peter Skands;  Theoretical Physics, CERN, CH-1211 Geneva 23, Switzerland;  |  | 
+ |  |      phone: + 41 - 22 - 767 2447; e-mail: peter.skands@cern.ch               |  | 
+ |  |                                                                              |  | 
+ |  |   The main program reference is the 'Brief Introduction to PYTHIA 8.1',      |  | 
+ |  |   T. Sjostrand, S. Mrenna and P. Skands, Comput. Phys. Comm. 178 (2008) 85   |  | 
+ |  |   [arXiv:0710.3820]                                                          |  | 
+ |  |                                                                              |  | 
+ |  |   The main physics reference is the 'PYTHIA 6.4 Physics and Manual',         |  | 
+ |  |   T. Sjostrand, S. Mrenna and P. Skands, JHEP05 (2006) 026 [hep-ph/0603175]. |  | 
+ |  |                                                                              |  | 
+ |  |   An archive of program versions and documentation is found on the web:      |  | 
+ |  |   http://www.thep.lu.se/~torbjorn/Pythia.html                                |  | 
+ |  |                                                                              |  | 
+ |  |   This program is released under the GNU General Public Licence version 2.   |  | 
+ |  |   Please respect the MCnet Guidelines for Event Generator Authors and Users. |  | 
+ |  |                                                                              |  | 
+ |  |   Disclaimer: this program comes without any guarantees.                     |  | 
+ |  |   Beware of errors and use common sense when interpreting results.           |  | 
+ |  |                                                                              |  | 
+ |  |   Copyright (C) 2011 Torbjorn Sjostrand                                      |  | 
+ |  |                                                                              |  | 
+ |  |                                                                              |  | 
+ |  *------------------------------------------------------------------------------*  | 
+ |                                                                                    | 
+ *------------------------------------------------------------------------------------* 
+
+######## GENERATION #########
+ PYTHIA Warning in ParticleDataEntry::initBWmass: switching off width for id = 10313
+ PYTHIA Warning in ParticleDataEntry::initBWmass: switching off width for id = 10323
+ PYTHIA Warning in ParticleDataEntry::initBWmass: switching off width for id = 10333
+
+ *-------  PYTHIA Process Initialization  --------------------------*
+ |                                                                  |
+ | We collide p+ with p+ at a CM energy of 1.400e+04 GeV            |
+ |                                                                  |
+ |------------------------------------------------------------------|
+ |                                                    |             |
+ | Subprocess                                    Code |   Estimated |
+ |                                                    |    max (mb) |
+ |                                                    |             |
+ |------------------------------------------------------------------|
+ |                                                    |             |
+ | Les Houches User Process(es)                  9999 |   1.000e-09 |
+ |                                                                  |
+ *-------  End PYTHIA Process Initialization -----------------------*
+
+ --------  LHA initialization information  ------------ 
+
+  beam    kind      energy  pdfgrp  pdfset 
+     A    2212    7000.000       0       0
+     B    2212    7000.000       0       0
+
+  Event weighting strategy = -4
+
+  Processes, with strategy-dependent cross section info 
+  number      xsec (pb)      xerr (pb)      xmax (pb) 
+     222     0.0000e+00     0.0000e+00     0.0000e+00
+
+ --------  End LHA initialization information  -------- 
+ PYTHIA Warning in SpaceShower::pT2nextQCD: weight above unity  
+ PYTHIA Error in BeamRemnants::setKinematics: kinematics construction failed  
+ PYTHIA Error in Pythia::next: partonLevel failed; try again  
+ PYTHIA Abort from Pythia::next: parton+hadronLevel failed; giving up  
+ PYTHIA Error in StringFragmentation::fragment: stuck in joining  
+ PYTHIA Error in Pythia::next: hadronLevel failed; try again  
+1.0000e+05
+############################
+Generated: 1.0000e+05 events
+Xsection = 1.020288171915012e+01 +/- 2.024189458677774e-03
+###############################################################################################
+                                             Weights
+===============================================================================================
+                                             Crude
+-----------------------------------------------------------------------------------------------
+XsCrudWt                                           10.53737903073       +/- 2.486174061451e-08  
+PartonsGeneration                                  0.9682821855642      +/- 0.0001920815261244  
+HardProcessWeight                                  0.99925              +/- 8.657005833427e-05  
+===============================================================================================
+                                             Model
+-----------------------------------------------------------------------------------------------
+Born%unpolarized                                   0.999222678991       +/- 8.657348129911e-05  
+===============================================================================================
+Main Weight                                        10.20288171915       +/- 0.002024189458678   
+###############################################################################################
+###############################################################################################
+                                             Cross Sections [nb]
+===============================================================================================
+                                             Best
+-----------------------------------------------------------------------------------------------
+Born%unpolarized                                   10.20288171915       +/- 0.002024189458678   
+===============================================================================================
+                                             All 
+-----------------------------------------------------------------------------------------------
+Born%unpolarized                                   10.20288171915       +/- 0.002024189458678   
+===============================================================================================
+###############################################################################################
+ *************************************
+ *       LHAPDF Version 5.9.1        *
+ *   Configured for the following:   *
+ *             All PDFs              *
+ *         FULL MEMORY option        *
+ *    Maximum  3 concurrent set(s)   *
+ *************************************
+
+ >>>>>> PDF description: <<<<<<
+ CTEQ6.1                                                         
+ Reference:                                                      
+ J. Pumplin, D.R. Stump, J. Huston, H.L. Lai                     
+ W.K. Tung, S. Kuhlmann, J. Owens                                
+ hep-ph/0303013                                                  
+ This set has 41 member PDFs.                                    
+     mem=0 --> central value (cteq61m)                           
+     mem=1-40 --> 20 sets of +ve/-ve error values                
+ >>>>>>                   <<<<<<
+
