@@ -1936,25 +1936,21 @@ void TFOAM::Grow(void){
     default:
       StopM(std::string("TFOAM::Grow: wrong value of m_OptPeek"));
     }
-   // if(m_Chat>0){
-		if(m_LastCe !=0){
-		  int kEcho=10;
-		  if(m_LastCe>=10000) kEcho=100;
-		  if( (m_LastCe%kEcho)==0){
-		if(m_nDim+m_kDim<10)
-		  cout<<m_nDim+m_kDim<<flush;
-		else
-		  cout<<"."<<flush;
-		if( (m_LastCe%(100*kEcho))==0)  cout<<"|"<<m_LastCe<<endl<<flush;
-		  }
-		}
-   // }
+    if(m_LastCe !=0){
+      int kEcho=10;
+      if(m_LastCe>=10000) kEcho=100;
+      if( (m_LastCe%kEcho)==0){
+	if(m_nDim+m_kDim<10)
+	  cout<<m_nDim+m_kDim<<flush;
+	else
+	  cout<<"."<<flush;
+	if( (m_LastCe%(100*kEcho))==0)  cout<<"|"<<m_LastCe<<endl<<flush;
+      }
+    }
     //
     if( Divide( newCell )==0) break;  // and divide it into two
   }
-  //if(m_Chat>0){
-	  cout<<endl<<flush;
- // }
+  cout<<endl<<flush;
   CheckAll(0);   // set arg=1 for more info
 }// Grow
 

@@ -1,10 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!-- New document created with EditiX at Sat Feb 21 14:58:11 CET 2009 -->
-
-<inputData
-	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:noNamespaceSchemaLocation="InputData.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><!-- New document created with EditiX at Sat Feb 21 14:58:11 CET 2009 --><inputData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="InputData.xsd">
 <!-- ================== Constans =================-->	 
 		<constants>
 		<constMath>
@@ -33,7 +27,7 @@
 	<generatorSettings nbEvents="10000">
 	
 		<randomGenrator name="ranlux"/>
-		<printOut prinOutType="1"></printOut>
+		<printOut prinOutType="1"/>
 		<maxWeightRej>2.0</maxWeightRej>
 	</generatorSettings>	
 <!-- ================= Event Settings================-->	
@@ -44,15 +38,15 @@
 			<beamA energy="7000"> 
 				<beamParticle>
 					<idPDG>2212</idPDG>
-					<PDF name="cteq61" PDFinterface="LHAPDF">
+					<PDF PDFinterface="LHAPDF" name="cteq61">
 						<PDFsubset>0</PDFsubset>		
 						<xMin>1e-6</xMin> 
 						<xMax>1.0</xMax>
 					</PDF>
 					<heavyIon switchOn="off">
-						<atomicNb></atomicNb>
-		 				<chargeNb></chargeNb>
-		 				<energy></energy>
+						<atomicNb/>
+		 				<chargeNb/>
+		 				<energy/>
 		 				<nuclearCorre>0</nuclearCorre>
 					</heavyIon>
 				</beamParticle>
@@ -66,9 +60,9 @@
 						<xMax>1.0</xMax>
 					</PDF>
 					<heavyIon switchOn="off">
-						<atomicNb></atomicNb>
-		 				<chargeNb></chargeNb>
-		 				<energy></energy>
+						<atomicNb/>
+		 				<chargeNb/>
+		 				<energy/>
 		 				<nuclearCorre>0</nuclearCorre>
 		 			</heavyIon>
 				</beamParticle>
@@ -101,7 +95,7 @@
 				<particleName>e</particleName>
 				<particleName>mu</particleName>
 			</finialParticles>
-			<widthSchem  witdthType="fix"></widthSchem>
+			<widthSchem witdthType="fix"/>
 			<ips ipsScheme="alpha">1</ips>
 			<factorizationScale scaleType="muF^2=Q^2">0</factorizationScale>
 		</hardProcess>
@@ -112,4 +106,3 @@
 		</radiativeCorrections>
 	</eventSettings>
 </inputData>
-

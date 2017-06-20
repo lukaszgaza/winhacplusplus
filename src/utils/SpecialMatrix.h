@@ -8,9 +8,6 @@
 #ifndef SPECIALMATRIX_H_
 #define SPECIALMATRIX_H_
 
-#include "../vinhac/core/enum/PolarizationDefinition.h"
-#include <set>
-#include <map>
 #include <vector>
 #include <ostream>
 #include <complex>
@@ -27,16 +24,16 @@ private:
 	unsigned dim;
 	unsigned total;
 
-	unsigned multi2one(const std::vector<unsigned> &multi) const;
+	unsigned multi2one(std::vector<unsigned> &multi) const;
 	std::vector<unsigned> one2multi(unsigned one) const;
 
 
 public:
-	SpecialMatrix(const std::vector<unsigned> &ranges);
+	SpecialMatrix(std::vector<unsigned> &ranges);
 	SpecialMatrix(const SpecialMatrix &another);
-	std::complex<double> get(const std::vector<unsigned>& index) const;
-	void set(const std::vector<unsigned>& index, const std::complex<double>& val);
-	void set(unsigned index[],const std::complex<double>& val);
+	std::complex<double> get(std::vector<unsigned> index) const;
+	void set(std::vector<unsigned> index,std::complex<double> val);
+	void set(unsigned index[],std::complex<double> val);
 //	virtual ~SpecialMatrix();
 	 ~SpecialMatrix();
 
@@ -70,15 +67,14 @@ public:
 
 	friend SpecialMatrix operator*(const SpecialMatrix &lhs,std::complex<double> rhs);
 
+	std::complex<double> operator*(SpecialMatrix &rhs);
 
 	SpecialMatrix operator&(SpecialMatrix &rhs);
 
 
 	SpecialMatrix operator+(SpecialMatrix &rhs);
 
-	double operator*(const SpecialMatrix &rhs) const;
-	std::map<PolarizationName::name,double> multiplyAndSquare(const SpecialMatrix &rhs, const std::set<PolarizationName::name> &polarization) const;
-
+	std::complex<double> operator*(const SpecialMatrix &rhs) const;
 
 	SpecialMatrix operator&(const SpecialMatrix &rhs) const;
 

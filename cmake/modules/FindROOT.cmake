@@ -15,7 +15,6 @@ MESSAGE(STATUS "Looking for Root...")
 SET(ROOT_CONFIG_SEARCHPATH
   /usr/bin
   $ENV{ROOTSYS}/bin
-  ${ROOT_PREFIX}/bin
 )
 
 SET(ROOT_DEFINITIONS "")
